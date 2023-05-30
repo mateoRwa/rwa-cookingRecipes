@@ -22,7 +22,7 @@ const meals = [
     calories: 250,
     mealPreparation:
       "Slice the tomatoes and mozzarella cheese. Arrange them on a plate, alternating tomato and mozzarella slices. Sprinkle with fresh basil leaves. Drizzle with olive oil and season with salt and pepper.",
-    image: "https://picsum.photos/200/300/?random",
+    image: "https://picsum.photos/500/400/?random",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const meals = [
     calories: 200,
     mealPreparation:
       "Heat oil in a pan or wok. Add the vegetables and stir-fry for a few minutes until tender-crisp. Season with soy sauce or other desired seasonings. Serve hot.",
-    image: "https://picsum.photos/200/300/?random",
+    image: "https://picsum.photos/500/400/?random",
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const meals = [
     calories: 500,
     mealPreparation:
       "Cook the spaghetti according to package instructions. In a separate pan, cook the ground beef with onions and garlic. Add tomatoes and simmer for 20 minutes. Serve the meat sauce over cooked spaghetti.",
-    image: "https://picsum.photos/200/300/?random",
+    image: "https://picsum.photos/500/400/?random",
   },
 ];
 

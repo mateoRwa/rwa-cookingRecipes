@@ -15,7 +15,7 @@ const MealItem = (props) => {
   return (
     <>
       {isMealDetailShowed && (
-        <MealModal setIsMealDetailShowed={setIsMealDetailShowed} />
+        <MealModal meal={props} setIsMealDetailShowed={setIsMealDetailShowed} />
       )}
       <div className="meal-item">
         <div className="image-box" onClick={showMealModal}>
