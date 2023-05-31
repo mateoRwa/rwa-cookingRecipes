@@ -4,10 +4,18 @@ const Layout = () => {
   return (
     <div className="main-menu">
       <h1>Recipes App</h1>
-      <Link to="/">Home</Link>
-      <Link to="/favorites">Favorites</Link>
-      <Link to="/add-recipe">Add recipe</Link>
-      <Link to="/login">Account</Link>
+      <Link to="/" className="layout-link">
+        Home
+      </Link>
+      <Link to="/favorites" className="layout-link">
+        Favorites
+      </Link>
+      <Link to="/add-recipe" className="layout-link">
+        Add recipe
+      </Link>
+      <Link to="/login" className="layout-link">
+        Account
+      </Link>
     </div>
   );
 };

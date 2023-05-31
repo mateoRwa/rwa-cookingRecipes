@@ -3,11 +3,10 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "./MealItem.css";
 import MealModal from "../MealModal/MealModal";
 const MealItem = (props) => {
-  const [isFavorite, setIsFavorite] = useState(false);
   const [isMealDetailShowed, setIsMealDetailShowed] = useState(false);
-  const favoriteHandler = (e) => {
-    e.preventDefault();
-    setIsFavorite((prev) => !prev);
+  const favoriteHandler = () => {
+    // Okida funkciju u roditeljskoj komponenti i salje joj id , za favorite, da moze vidit ima li id u nizu ili nema
+    props.favoriteHandler(props.id);
   };
   const showMealModal = () => {
     setIsMealDetailShowed(true);
@@ -23,9 +22,11 @@ const MealItem = (props) => {
         </div>
         <div className="meal-bio">
           <h3 onClick={showMealModal}>{props.name}</h3>
-          <span onClick={favoriteHandler}>
-            {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
-          </span>
+          <div onClick={favoriteHandler}>
+            <span>
+              {props.isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
+            </span>
+          </div>
         </div>
       </div>
     </>

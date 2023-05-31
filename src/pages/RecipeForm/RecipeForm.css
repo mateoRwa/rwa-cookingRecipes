@@ -1,0 +1,83 @@
+.recipe-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+.recipe-name,
+.recipe-description,
+.recipe-image,
+.recipe-calories,
+.recipe-minutes,
+.recipe-preparation {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+label {
+  margin-left: 10px;
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+input {
+  padding: 13px;
+  width: 300px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(255, 255, 252);
+}
+input:focus {
+  outline: none;
+}
+textarea {
+  max-width: 450px;
+  min-height: 190px;
+  width: 450px;
+  border: none;
+}
+textarea:focus {
+  outline: none;
+}
+.ingredientss {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.ingredientss .each-ingredient {
+  cursor: pointer;
+  background-color: rgb(21, 136, 97);
+  margin: 6px;
+  padding: 5px;
+  min-width: 70px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+}
+.ingredientss .each-ingredient:hover {
+  opacity: 0.8;
+}
+.each-ingredient.selected {
+  background-color: rgb(23, 255, 178);
+  color: black;
+}
+button {
+  width: 300px;
+  padding: 10px 15px;
+  margin: 15px;
+  cursor: pointer;
+  border: none;
+  background-color: tomato;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+.error-msg {
+  color: red;
+}
+button:hover {
+  opacity: 0.8;
+}

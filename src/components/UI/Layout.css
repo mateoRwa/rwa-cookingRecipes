@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
-a {
+.layout-link {
   text-decoration: none;
   color: black;
   font-size: 1.2rem;
@@ -13,6 +13,6 @@ a {
   letter-spacing: 0.8px;
   padding: 10px;
 }
-a:hover {
+.layout-link:hover {
   border-bottom: 2px solid blue;
 }

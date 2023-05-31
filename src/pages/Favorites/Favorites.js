@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react";
+import { meals } from "../Home/Home";
+
 const Favorites = () => {
-    return <div>
+  const [favorites, setFavorites] = useState([]);
 
-    </div>
-}
+  useEffect(() => {
+    // dodat cemo favorite
+  }, []);
+  return <div></div>;
+};
 
-export default Favorites
+export default Favorites;

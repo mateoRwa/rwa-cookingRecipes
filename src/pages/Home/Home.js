@@ -1,6 +1,6 @@
 import Meals from "../../components/Meals/Meals";
 import "./Home.css";
-const meals = [
+export const meals = [
   {
     id: 1,
     name: "Spaghetti Bolognese",
@@ -35,17 +35,17 @@ const meals = [
       "Heat oil in a pan or wok. Add the vegetables and stir-fry for a few minutes until tender-crisp. Season with soy sauce or other desired seasonings. Serve hot.",
     image: "https://picsum.photos/500/400/?random",
   },
-  {
-    id: 4,
-    name: "Spaghetti Bolognese",
-    description: "Classic Italian pasta dish with meat sauce",
-    ingredients: ["spaghetti", "ground beef", "tomatoes", "onions", "garlic"],
-    preparationTime: 30,
-    calories: 500,
-    mealPreparation:
-      "Cook the spaghetti according to package instructions. In a separate pan, cook the ground beef with onions and garlic. Add tomatoes and simmer for 20 minutes. Serve the meat sauce over cooked spaghetti.",
-    image: "https://picsum.photos/500/400/?random",
-  },
+  // {
+  //   id: 4,
+  //   name: "Spaghetti Bolognese",
+  //   description: "Classic Italian pasta dish with meat sauce",
+  //   ingredients: ["spaghetti", "ground beef", "tomatoes", "onions", "garlic"],
+  //   preparationTime: 30,
+  //   calories: 500,
+  //   mealPreparation:
+  //     "Cook the spaghetti according to package instructions. In a separate pan, cook the ground beef with onions and garlic. Add tomatoes and simmer for 20 minutes. Serve the meat sauce over cooked spaghetti.",
+  //   image: "https://picsum.photos/500/400/?random",
+  // },
 ];
 
 const Home = () => {
