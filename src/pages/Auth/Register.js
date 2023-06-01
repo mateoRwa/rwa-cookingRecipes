@@ -28,6 +28,25 @@ const Register = () => {
 
     if (!emailError && !pwdError) {
       // Ako su zadovoljeni uvjeti
+
+      let url;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDuZFy66qGr8Adb2RtFafoh_c88VYsoiF4`;
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          email: emailVal,
+          password: passwordVal,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => console.log(data));
+
       setEmailVal("");
       setPasswordVal("");
     }

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./Auth.css";
 import { Link } from "react-router-dom";
+import useStore from "../../store/useStore";
 const Login = () => {
   const [emailVal, setEmailVal] = useState("");
   const [passwordVal, setPasswordVal] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const setToken = useStore((state) => state.setToken);
   const submitLoginHandler = (e) => {
     e.preventDefault();
     let emailError, pwdError;
@@ -28,6 +30,32 @@ const Login = () => {
 
     if (!emailError && !pwdError) {
       // Ako su zadovoljeni uvjeti
+
+      let url;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDuZFy66qGr8Adb2RtFafoh_c88VYsoiF4`;
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          email: emailVal,
+          password: passwordVal,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((data) => {
+          if (data.idToken) {
+            setToken(data.idToken);
+            localStorage.setItem("token", data.idToken);
+            window.location.href = "/";
+          }
+          console.log(data);
+        });
       setEmailVal("");
       setPasswordVal("");
     }
