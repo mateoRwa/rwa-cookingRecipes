@@ -23,3 +23,12 @@
   cursor: pointer;
   color: red;
 }
+@media screen and (max-width: 1600px) {
+  .meal-item {
+    width: 400px;
+  }
+  .meal-item img {
+    width: 400px;
+    height: 300px;
+  }
+}

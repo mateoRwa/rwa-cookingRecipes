@@ -28,7 +28,7 @@ function NewRecipe() {
       setInputError("");
     }
     if (ingredients.length < 3) {
-      setIngredientError("Minimum 3 ingredients are required");
+      setIngredientError("Minimum 3 ingredients are required!");
     } else {
       setIngredientError("");
     }

@@ -1,6 +1,6 @@
 import "./MealModal.css";
 import { BiTime } from "react-icons/bi";
-import { FaBurn } from "react-icons/fa";
+import { FaBurn, FaTrash } from "react-icons/fa";
 import Tag from "../UI/Tag";
 import "./MealModal.css";
 const MealModal = (props) => {
@@ -15,9 +15,14 @@ const MealModal = (props) => {
           <div className="image-div">
             <img src={props.meal.imageUrl} />
           </div>
-          <div className="heading">
-            <span className="title">{props.meal.name}</span>
-            <span className="subtitle">{props.meal.description}</span>
+          <div className="main-desc">
+            <div className="heading">
+              <span className="title">{props.meal.name}</span>
+              <span className="subtitle">{props.meal.description}</span>
+            </div>
+            <span className="garbage-icon">
+              <FaTrash />
+            </span>
           </div>
           <div className="meal-detail">
             <div className="calories">
