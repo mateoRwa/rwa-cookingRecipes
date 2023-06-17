@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./Auth.css";
 import { Link } from "react-router-dom";
 import useStore from "../../store/useStore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [emailVal, setEmailVal] = useState("");
   const [passwordVal, setPasswordVal] = useState("");
@@ -45,7 +47,6 @@ const Login = () => {
         },
       })
         .then((response) => {
-          console.log(response);
           return response.json();
         })
         .then((data) => {
@@ -53,11 +54,16 @@ const Login = () => {
             setToken(data.idToken);
             localStorage.setItem("token", data.idToken);
             window.location.href = "/";
+            setEmailVal("");
+            setPasswordVal("");
           }
-          console.log(data);
+          if (data.error.code === 400) {
+            toast.error(data.error.message, {
+              position: "bottom-center",
+              autoClose: 2000,
+            });
+          }
         });
-      setEmailVal("");
-      setPasswordVal("");
     }
   };
   return (
@@ -98,6 +104,7 @@ const Login = () => {
           </button>
         </div>
       </form>
+      <ToastContainer toastStyle={{ width: "600px" }} />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { meals } from "../Home/Home";
 import MealItem from "../../components/MealItem/MealItem";
 import "./Favorites.css";
+import useStore from "../../store/useStore";
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
-
+  const recipes = useStore((state) => state.recipes);
   useEffect(() => {
     // dodat cemo favorite
     try {
@@ -15,7 +15,7 @@ const Favorites = () => {
 
   let filteredMeals = [];
   for (let index = 0; index < favorites.length; index++) {
-    const elem = meals.find((meal) => meal.id === favorites[index]);
+    const elem = recipes.find((meal) => meal.id === favorites[index]);
     if (elem) {
       filteredMeals.push(elem);
     }

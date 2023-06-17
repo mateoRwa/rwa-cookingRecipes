@@ -1,11 +1,16 @@
 import { useState } from "react";
 import "./Auth.css";
 import { Link } from "react-router-dom";
+import useStore from "../../store/useStore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Register = () => {
   const [emailVal, setEmailVal] = useState("");
   const [passwordVal, setPasswordVal] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const setToken = useStore((state) => state.setToken);
   const submitRegisterHandler = (e) => {
     e.preventDefault();
     let emailError, pwdError;
@@ -45,10 +50,21 @@ const Register = () => {
         .then((response) => {
           return response.json();
         })
-        .then((data) => console.log(data));
-
-      setEmailVal("");
-      setPasswordVal("");
+        .then((data) => {
+          if (data.idToken) {
+            setToken(data.idToken);
+            localStorage.setItem("token", data.idToken);
+            window.location.href = "/";
+            setEmailVal("");
+            setPasswordVal("");
+          }
+          if (data.error.code === 400) {
+            toast.error(data.error.message, {
+              position: "bottom-center",
+              autoClose: 2000,
+            });
+          }
+        });
     }
   };
   return (
@@ -89,6 +105,7 @@ const Register = () => {
           </button>
         </div>
       </form>
+      <ToastContainer toastStyle={{ width: "600px" }} />
     </div>
   );
 };

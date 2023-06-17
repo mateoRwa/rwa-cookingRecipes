@@ -13,6 +13,9 @@ function NewRecipe() {
   const [inputError, setInputError] = useState("");
   const [ingredientError, setIngredientError] = useState("");
   const submitRecipeHandler = () => {
+    let inputError = true;
+    let selectedIngredientError = true;
+    let recipeData = {};
     if (
       recipeName.length === 0 ||
       recipeDescription.length === 0 ||
@@ -23,14 +26,46 @@ function NewRecipe() {
       !preparationMinutes ||
       preparationMinutes <= 0
     ) {
+      inputError = true;
       setInputError("All fields are required! Numbers cannot be less than 1!");
     } else {
+      inputError = false;
       setInputError("");
     }
     if (ingredients.length < 3) {
+      selectedIngredientError = true;
       setIngredientError("Minimum 3 ingredients are required!");
     } else {
+      selectedIngredientError = false;
       setIngredientError("");
+    }
+
+    if (!selectedIngredientError && !inputError) {
+      recipeData = {
+        id: Math.random().toString(),
+        name: recipeName,
+        description: recipeDescription,
+        image: recipeImageUrl,
+        calories: calories,
+        preparationTime: preparationMinutes,
+        mealPreparation: recipePreparation,
+        ingredients: ingredients,
+      };
+
+      fetch(
+        "https://recipe-react-app-96377-default-rtdb.firebaseio.com/recipes.json",
+        {
+          method: "POST",
+          body: JSON.stringify(recipeData),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      ).then((res) => {
+        if (res.ok) {
+          window.location.href = "/";
+        }
+      });
     }
   };
   const ingredientHandler = (ingredient) => {

@@ -25,6 +25,7 @@ const Meals = ({ meals }) => {
         // return (
         <div key={meal.id}>
           <MealItem
+            recipeId={meal.recipeId}
             id={meal.id}
             key={meal.id}
             name={meal.name}
