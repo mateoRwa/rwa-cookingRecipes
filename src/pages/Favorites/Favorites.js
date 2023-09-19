@@ -4,7 +4,7 @@ import "./Favorites.css";
 import useStore from "../../store/useStore";
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
-  const recipes = useStore((state) => state.recipes);
+  const recipes = useStore((state) => state.recipes); // recepti iz baze
   useEffect(() => {
     // dodat cemo favorite
     try {
@@ -15,6 +15,10 @@ const Favorites = () => {
 
   let filteredMeals = [];
   for (let index = 0; index < favorites.length; index++) {
+    // console.log(recipes);
+    // console.log(recipes.forEach((meal) => console.log(meal)));
+    console.log(favorites);
+    console.log(favorites[index]);
     const elem = recipes.find((meal) => meal.id === favorites[index]);
     if (elem) {
       filteredMeals.push(elem);

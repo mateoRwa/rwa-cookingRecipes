@@ -9,6 +9,7 @@ const MealItem = (props) => {
     props.favoriteHandler(props.id);
   };
   const showMealModal = () => {
+    //Otvara detalje o receptu
     setIsMealDetailShowed(true);
   };
   return (

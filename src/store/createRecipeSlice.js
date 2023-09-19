@@ -1,6 +1,6 @@
 export const createRecipeSlice = (set, get) => ({
   recipes: [],
-  setRecipes: (recipes) => {
-    set({ recipes: recipes });
+  setRecipes: (newrecipes) => {
+    set({ recipes: newrecipes });
   },
 });

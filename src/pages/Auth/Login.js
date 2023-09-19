@@ -11,11 +11,13 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
   const setToken = useStore((state) => state.setToken);
   const submitLoginHandler = (e) => {
+    // Kliknut login button
+
     e.preventDefault();
     let emailError, pwdError;
-    const passwordValidator =
+    const emailVallidator =
       /^(([a-zA-Z0-9]+)|([a-zA-Z0-9]+((?:\_[a-zA-Z0-9]+)|(?:\.[a-zA-Z0-9]+))*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-zA-Z]{2,6}(?:\.[a-zA-Z]{2})?)$)/;
-    if (emailVal.length === 0 || !passwordValidator.test(emailVal)) {
+    if (emailVal.length === 0 || !emailVallidator.test(emailVal)) {
       setEmailError("Please enter valid email address.");
       emailError = true;
     } else {

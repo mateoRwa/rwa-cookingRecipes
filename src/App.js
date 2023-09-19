@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import useStore from "./store/useStore";
 function App() {
   const [loading, setLoading] = useState(false);
-  const setRecipes = useStore((state) => state.setRecipes);
+  const setRecipes = useStore((state) => state.setRecipes); // globalni state, da mogu svi uzeti kad hoce
 
   useEffect(() => {
     setLoading(true);

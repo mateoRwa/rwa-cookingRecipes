@@ -41,6 +41,9 @@ const MealModal = (props) => {
             <div className="heading">
               <span className="title">{props.meal.name}</span>
               <span className="subtitle">{props.meal.description}</span>
+              <div className="closeModal" onClick={closeModalHandler}>
+                <span>Close</span>
+              </div>
             </div>
             <span className="garbage-icon">
               {token && <FaTrash onClick={deleteRecipe} />}
@@ -68,9 +71,6 @@ const MealModal = (props) => {
           <div className="preparation">
             <p>{props.meal.mealPreparation}</p>
           </div>
-        </div>
-        <div className="closeModal" onClick={closeModalHandler}>
-          <span>Close</span>
         </div>
       </div>
     </div>
